@@ -1,0 +1,16 @@
+syntax on
+set hls
+set wrap
+set linebreak
+"set nocp
+set nolist  " list disables linebreak
+set textwidth=0
+set wrapmargin=0
+set backspace=indent,eol,start " Allows backspacing over linebreaks
+colorscheme delek
+filetype plugin indent on
+set spell spelllang=en_us
+hi SpellBad        term=undercurl ctermfg=Red ctermbg=Black gui=undercurl guisp=Red
+hi SpellCap        term=undercurl ctermfg=Red ctermbg=Black gui=undercurl guisp=Blue
+hi SpellRare       term=undercurl ctermfg=Red ctermbg=Black gui=undercurl guisp=Magenta
+hi SpellLocal      term=underline ctermfg=Red ctermfg=Black gui=undercurl guisp=DarkCyan

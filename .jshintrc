@@ -1,0 +1,4 @@
+{
+  "esversion": 6, // stop whining at my es6 syntax and get up with the times for real
+  "sub": true // suppress the warnings about using [] notation when dot notation is possible with objects
+}

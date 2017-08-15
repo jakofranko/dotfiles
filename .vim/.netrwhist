@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Library/WebServer/Documents/jakofranko.github.io'
+let g:netrw_dirhist_2='/Library/WebServer/Documents/jakofranko.github.io/_includes'
+let g:netrw_dirhist_3='/Users/jfranklin/.gem'
+let g:netrw_dirhist_4='/Users/jfranklin/.gem/specs'
+let g:netrw_dirhist_5='/Users/jfranklin/.gem'
+let g:netrw_dirhist_6='/Users/jfranklin/.gem/ruby'
+let g:netrw_dirhist_7='/Users/jfranklin/.gem'
+let g:netrw_dirhist_8='/Users/jfranklin'
