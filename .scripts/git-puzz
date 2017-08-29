@@ -1,0 +1,6 @@
+#!/bin/sh
+
+REMOTE=$(git remote | fzf)
+BRANCH=$(git branch --list $REMOTE/* -r | fzf | cut -f 2- -d /)
+
+git pull $REMOTE $BRANCH
