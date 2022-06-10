@@ -6,7 +6,6 @@
 [alias]
     recent = ! git for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - (%(color:green)%(committerdate:relative)%(color:reset))' | sed 's/*//'
     checkout-branch = !BRANCH=`git recent | tac | fzf --ansi --no-sort --preview='git lg -p -5 --branches=master {1}' | tr -s ' ' | cut -d' ' -f2` && git checkout ${BRANCH}
-    prune-merged = branch --merged | grep -v "\*" | grep -v master | grep -v dev | xargs -n 1 git branch -d
     lp = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr %an)%Creset' --abbrev-commit --date=relative --graph
     l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     c = commit
