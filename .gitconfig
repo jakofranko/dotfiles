@@ -1,25 +1,41 @@
 [user]
-	name = Jake Franklin
-	email = jacob.franklin@vonage.com
+    name = Jake Franklin
+    email = jacob.d.franklin@gmail.com
 [push]
 	default = matching
-[credential]
-  username = jfranklin
-  helper = cache --timeout=36000
 [alias]
-  recent = ! git for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - (%(color:green)%(committerdate:relative)%(color:reset))' | sed 's/*//'
-  checkout-branch = !BRANCH=`git recent | tac | fzf --ansi --no-sort --preview='git lg -p -5 --branches=master {1}' | tr -s ' ' | cut -d' ' -f2` && git checkout ${BRANCH}
-	logp = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr %an)%Creset' --abbrev-commit --date=relative --graph
-  undo-commit = reset --soft HEAD^
-  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    recent = ! git for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - (%(color:green)%(committerdate:relative)%(color:reset))' | sed 's/*//'
+    checkout-branch = !BRANCH=`git recent | tac | fzf --ansi --no-sort --preview='git lg -p -5 --branches=master {1}' | tr -s ' ' | cut -d' ' -f2` && git checkout ${BRANCH}
+    prune-merged = branch --merged | grep -v "\*" | grep -v master | grep -v dev | xargs -n 1 git branch -d
+    lp = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr %an)%Creset' --abbrev-commit --date=relative --graph
+    l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    c = commit
+    p = push
+    ca = commit -a
+    s = status
+    d = diff
+    last = log -1 HEAD
+    rc = rebase --continue
+    ra = rebase --abort
+    mt = mergetool
+    dt = difftool
+    alias = config --get-regexp alias
 [core]
-	autocrlf = input
+	autocrlf = false
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
+[mergetool]
+    prompt = false
+    keepbackup = false
 [mergetool "sublime"]
 	cmd = subl -w $MERGED
 	trustExitCode = false
+[mergetool "atom"]
+	cmd = atom -w $MERGED
+	trustExitCode = false
 [merge]
-	tool = sublime
+	tool = atom
+[diff]
+    tool = atom

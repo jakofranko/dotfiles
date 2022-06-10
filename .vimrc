@@ -21,8 +21,9 @@ colorscheme delek
 execute pathogen#infect()
 filetype plugin indent on
 
-hi Search	ctermbg=Blue ctermfg=Black 
-hi Error	ctermfg=Black ctermbg=Red guifg=Black guibg=Red
-hi SpellBad     term=undercurl ctermfg=Black ctermbg=Red gui=undercurl guisp=Red
+hi Search   ctermbg=Blue ctermfg=Black
+hi Error    ctermfg=Black ctermbg=Red guifg=Black guibg=Red
+hi SpellBad term=undercurl ctermfg=Black ctermbg=Red gui=undercurl guisp=Red
+
 " makes vim read *.ejs files like they're .html files
 au BufNewFile,BufRead *.ejs set filetype=html
